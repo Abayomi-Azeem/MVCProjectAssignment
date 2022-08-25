@@ -20,10 +20,10 @@ namespace MVCProjectAssignment.Models.View_Model
 
     public class Vehicles
     {
-        public string Make { get; set; }
+        public string VehicleMake { get; set; }
 
-        public string Model { get; set; }
-        public string Status { get; set; }
+        public string VehicleModel { get; set; }
+        public string VehicleStatus { get; set; }
 
         public int MemberId { get; set; }
     }

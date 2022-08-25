@@ -106,14 +106,20 @@ namespace MVCProjectAssignment.Controllers
             {
                 var db = new owodaInfo();
                 var allvehicles = new NURTWVehicle();
-                allvehicles.VehicleMake = vehicle.Make;
-                allvehicles.VehicleModel = vehicle.Model;
-                allvehicles.VehicleStatus = vehicle.Status;
+                allvehicles.VehicleMake = vehicle.VehicleMake;
+                allvehicles.VehicleModel = vehicle.VehicleModel;
+                allvehicles.VehicleStatus = vehicle.VehicleStatus;
                 allvehicles.OwnerId = vehicle.MemberId;
                 db.NURTWVehicles.Add(allvehicles);
                 db.SaveChanges();
                 ViewBag.Successful = "Vehicle Registration Successful";
-                ViewBag.VehicleId = db.NURTWVehicles.Where(x => x.VehicleMake == vehicle.Make && x.VehicleModel == vehicle.Model && x.OwnerId == vehicle.MemberId).Select(x => x.Id).Take(1);
+                var rowList = db.NURTWVehicles.Where(x => x.VehicleMake == vehicle.VehicleMake && x.VehicleModel == vehicle.VehicleModel && x.OwnerId == vehicle.MemberId).Select(x => x.Id).ToList();
+                if(rowList.Count < 1)
+                {
+                    ViewBag.ErrorMessage = "Error During Registration";
+                    return View();
+                }
+                ViewBag.VehicleId = rowList[rowList.Count() - 1];
                 return View();
             }
             catch (Exception ex)
