@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "VehicleReg";
+}
+
+<h1>Vehicle Registration</h1>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">Member ID</div>
+    <div><input type="text" name="memberId" class="form-control" /></div>
+    <br />
+    <div class="form-group">Vehicle Make</div>
+    <div><input type="text" name="vehicleMake" class="form-control" /></div>
+    <br />
+    <div class="form-group">Vehicle Model</div>
+    <div><input type="text" name="vehicleModel" class="form-control" /> </div>
+    <br />
+    <div class="form-group">Vehicle Status</div>
+    <div>
+        <select name="vehicleStatus">
+            <option value="Good">Good</option>
+            <option value="Bad">Bad</option>
+        </select>
+    </div>
+    <br />
+    <div><button type="submit" class="btn-success">Submit</button></div>
+    <br />
+    <div> <h1 style="color:green;font-size:xx-large">@ViewBag.Successful</h1></div>
+    <br />
+    <div><h1 style="font-weight:bold;font-size:large">@ViewBag.VehicleId</h1> </div>
+    <div> <h1 style="color:red;font-size:xx-large">@ViewBag.ErrorMessage</h1></div>
+
+</form>
+

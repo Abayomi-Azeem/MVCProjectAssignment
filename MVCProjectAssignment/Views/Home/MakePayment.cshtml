@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "MakePayment";
+}
+
+<h1>MakePayment</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">Member ID</div>
+    <div><input type="text" name="memberId" class="form-control" /></div>
+    <br />
+    <div class="form-group">Vehicle ID</div>
+    <div><input type="text" name="vehicleId" class="form-control" /></div>
+    <br />
+    <div class="form-group">Amount</div>
+    <div><input type="text" name="amount" class="form-control" /> </div>
+    <br />
+    <div><button type="submit" class="btn-success">Submit</button></div>
+    <br />
+    <div> <h1 style="color:green;font-size:xx-large">@ViewBag.Successful</h1></div>
+    <div> <h1 style="color:red;font-size:xx-large">@ViewBag.ErrorMessage</h1></div>
+</form>
+
